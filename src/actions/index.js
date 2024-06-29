@@ -1,5 +1,7 @@
 'use server'
 
+import { signIn, signOut } from "@/auth";
+
 // get all products 
 export async function allProductsAction(){
     try {
@@ -36,4 +38,12 @@ export async function productDetailsAction(id) {
             message: 'Some error occured! Please try again'
         }
     }
+}
+
+export async function loginAction(){
+    await signIn('github');
+}
+
+export async function logoutAction(){
+    await signOut();
 }

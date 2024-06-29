@@ -1,8 +1,17 @@
+'use client'
 import Link from 'next/link';
-import React from 'react';
 import { Button } from '../ui/button';
+import { loginAction, logoutAction } from '@/actions';
 
-const Header = () => {
+const Header = ({ user }) => {
+    console.log(user);
+    async function handleSignIn(){
+        await loginAction();
+    }
+
+    async function handleLogOut(){
+        await logoutAction();
+    }
     return (
         <header className='flex shadow-md p-4 bg-white min-h-[70px] tracking-wide relative z-50 max-w-6xl mx-auto'>
             <div className='flex flex-wrap items-center justify-between gap-5 w-full font-bold'>
@@ -19,8 +28,8 @@ const Header = () => {
                 </ul>
             </div>
             <div className='flex space-x-3'>
-                <form action="">
-                    <Button variant='outline'>Login</Button>
+                <form action={user ? handleLogOut : handleSignIn}>
+                    <Button variant='outline' type='submit'>{user ? 'Logout' : 'Login'}</Button>
                 </form>
             </div>
         </header>

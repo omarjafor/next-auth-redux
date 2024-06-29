@@ -1,9 +1,14 @@
 import { productDetailsAction } from '@/actions';
+import { auth } from '@/auth';
 import AddCartButton from '@/components/add-cart-button';
+import { redirect } from 'next/navigation';
 
 const ProductDetails = async({params}) => {
     const details = await productDetailsAction(params.details);
     console.log(details);
+    const getSession = await auth();
+    if (!getSession?.user) redirect('/unauth')
+
     return (
         <div className="max-w-6xl mx-auto p-2">
             <div className="p-6">
