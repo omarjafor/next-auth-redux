@@ -7,7 +7,6 @@ export default async function Home() {
   const products = await allProductsAction();
   const getSession = await auth();
   if (!getSession?.user) redirect('/unauth')
-  console.log(getSession);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">

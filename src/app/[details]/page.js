@@ -5,7 +5,6 @@ import { redirect } from 'next/navigation';
 
 const ProductDetails = async({params}) => {
     const details = await productDetailsAction(params.details);
-    console.log(details);
     const getSession = await auth();
     if (!getSession?.user) redirect('/unauth')
 

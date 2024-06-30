@@ -16,7 +16,6 @@ import { removeFromCart } from "@/redux/cart";
 const Cart = () => {
     const {cart} = useSelector(state => state);
     const dispatch = useDispatch();
-    console.log(cart?.cartItem);
     const handleRemoveCart = (id) => {
         dispatch(removeFromCart(id))
     }

@@ -7,7 +7,6 @@ import { addToCart, removeFromCart } from "@/redux/cart";
 const AddCartButton = ({ product }) => {
     const {cart} = useSelector(state => state);
     const dispatch = useDispatch();
-    console.log(cart?.cartItem);
     const handleAddCart = () => {
         dispatch(addToCart(product));
     }

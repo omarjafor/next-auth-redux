@@ -4,7 +4,6 @@ import { Button } from '../ui/button';
 import { loginAction, logoutAction } from '@/actions';
 
 const Header = ({ user }) => {
-    console.log(user);
     async function handleSignIn(){
         await loginAction();
     }
